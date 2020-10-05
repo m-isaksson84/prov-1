@@ -9,31 +9,38 @@ namespace prov1
             int points = 0;
             int answerInt = 0;
             string answerString = "";
+            bool numericalAnswer = false;
             bool correctAnswer = false;
-            Console.WriteLine("");
+
+            Console.WriteLine("Välje ett värde mellan 0-10");
+
+
+            while (!numericalAnswer)
+            {
+
+                answerString = Console.ReadLine();
+                numericalAnswer = int.TryParse(answerString, out answerInt);
+
+                // testar om svaret är en siffra och om den inte är det körs koden nedan och användaren måste försöka igen
+                if (!numericalAnswer)
+                {
+                    Console.WriteLine("Skriv endast siffror");
+                }
+
+            }
 
 
             while (!correctAnswer)
             {
 
-                answerString = Console.ReadLine();
                 correctAnswer = int.TryParse(answerString, out answerInt);
-
-                if (!correctAnswer)
+                if (answerInt != 7)
                 {
-                    Console.WriteLine("Skriv endast siffror");
+                    Console.WriteLine("Fel svar!");
+                    //numericalAnswer = true;
                 }
 
-                if (answerInt = 5 || 6 || 8 || 8)
-                {
-                    Console.WriteLine("Near miss!");
-                }
 
-                else if (answerInt != 5)
-                {
-                    Console.WriteLine("Fel! Försök igen.");
-                    correctAnswer = false;
-                }
                 else
                 {
                     points++;
@@ -41,6 +48,7 @@ namespace prov1
 
                 }
             }
+
             Console.ReadLine();
         }
     }
