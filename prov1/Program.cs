@@ -36,7 +36,7 @@ namespace prov1
                 correctAnswer = int.TryParse(answerString, out answerInt);
                 if (answerInt != 7)
                 {
-                    Console.WriteLine("Fel svar!");
+                    Console.WriteLine("Miss!");
                     //numericalAnswer = true;
                 }
 
@@ -50,6 +50,8 @@ namespace prov1
             }
 
             Console.ReadLine();
+
+            // vissa saker i koden fungerar inte, till exempel kan man inte försöka igen om man skriver fel tal, dessutom testar den inte om man får en "near miss"
         }
     }
 }
